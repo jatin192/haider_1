@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+void display(int arr[], int n)
+{
+    for(int i=0; i<n; i++)
+    printf("%d\n", arr[i]);
+}
+
+void insert1(int arr[], int size, int element, int capacity, int index)
+{
+    if(size >= capacity)
+    printf("Array Overflow\n");
+    for(int i=size-1; i>=index; i--)
+    arr[i+1] = arr[i];
+    arr[index] = element;
+}
+
+void deletion(int arr[], int size, int index)
+{
+    
+    for(int i=index; i<size-1; i++)
+    arr[i]=arr[i+1];
+    
+}
+
+void main()
+{
+    int arr[100] = {1,5,2,99,34};
+    int size =5, element = 75, index = 3;
+    printf("Displaying original array\n");
+    display(arr, size);
+    insert1(arr, size, element, 100, index);
+    size++;
+    printf("After insertion\n");
+    display(arr, size);
+    deletion(arr, size, index);
+    size--;
+    printf("After deletion\n");
+    display(arr, size);
+}
